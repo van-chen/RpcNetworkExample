@@ -1,0 +1,7 @@
+//file: bhcredcheck.acf
+[
+    implicit_handle (handle_t bhcredcheck_IfHandle)
+] 
+interface bhcredcheck
+{
+}
