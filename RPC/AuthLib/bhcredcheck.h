@@ -52,12 +52,9 @@ extern "C"{
 /* interface bhcredcheck */
 /* [implicit_handle][version][uuid] */ 
 
-void HelloProc( 
+void CheckAuth( 
     /* [in] */ handle_t h1,
-    /* [string][in] */ char *pszString);
-
-void Shutdown( 
-    /* [in] */ handle_t h1);
+    /* [string][in] */ const wchar_t *pszString);
 
 
 extern handle_t bhcredcheck_IfHandle;

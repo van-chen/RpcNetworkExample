@@ -3,14 +3,16 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-add_definitions(-DSECURITY_WIN32)
-# Add source to this project's executable.
-add_executable (RPCServer "Server.cpp" "Server.h" "bhcredcheck.h" "bhcredcheck_s.c" "spn.cpp" "spn.h" )
+add_subdirectory("AuthLib")
 
-add_executable (RPCClient "Client.cpp" "Client.h" "bhcredcheck.h" "bhcredcheck_c.c" "spn.cpp" "spn.h" )
+add_definitions(-DUNICODE)
 
-target_link_libraries(RPCServer "Ntdsapi.lib" "Rpcrt4.lib" "NetApi32.lib")
+add_executable (RPCServer "Server.cpp")
 
-target_link_libraries(RPCClient "Ntdsapi.lib" "Rpcrt4.lib" "NetApi32.lib")
+add_executable (RPCClient "Client.cpp")
+
+target_link_libraries(RPCServer AuthLib)
+
+target_link_libraries(RPCClient AuthLibClient)
 
 # TODO: Add tests and install targets if needed.

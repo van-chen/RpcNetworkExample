@@ -36,7 +36,7 @@
 #include "bhcredcheck.h"
 
 #define TYPE_FORMAT_STRING_SIZE   7                                 
-#define PROC_FORMAT_STRING_SIZE   63                                
+#define PROC_FORMAT_STRING_SIZE   35                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -96,26 +96,14 @@ extern const MIDL_STUB_DESC bhcredcheck_StubDesc;
 static RPC_BINDING_HANDLE bhcredcheck__MIDL_AutoBindHandle;
 
 
-void HelloProc( 
+void CheckAuth( 
     /* [in] */ handle_t h1,
-    /* [string][in] */ unsigned char *pszString)
+    /* [string][in] */ wchar_t *pszString)
 {
 
     NdrClientCall2(
                   ( PMIDL_STUB_DESC  )&bhcredcheck_StubDesc,
                   (PFORMAT_STRING) &bhcredcheck__MIDL_ProcFormatString.Format[0],
-                  ( unsigned char * )&h1);
-    
-}
-
-
-void Shutdown( 
-    /* [in] */ handle_t h1)
-{
-
-    NdrClientCall2(
-                  ( PMIDL_STUB_DESC  )&bhcredcheck_StubDesc,
-                  (PFORMAT_STRING) &bhcredcheck__MIDL_ProcFormatString.Format[34],
                   ( unsigned char * )&h1);
     
 }
@@ -138,7 +126,7 @@ static const bhcredcheck_MIDL_PROC_FORMAT_STRING bhcredcheck__MIDL_ProcFormatStr
         0,
         {
 
-	/* Procedure HelloProc */
+	/* Procedure CheckAuth */
 
 			0x0,		/* 0 */
 			0x48,		/* Old Flags:  */
@@ -164,26 +152,6 @@ static const bhcredcheck_MIDL_PROC_FORMAT_STRING bhcredcheck__MIDL_ProcFormatStr
 /* 30 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
 /* 32 */	NdrFcShort( 0x4 ),	/* Type Offset=4 */
 
-	/* Procedure Shutdown */
-
-/* 34 */	0x0,		/* 0 */
-			0x48,		/* Old Flags:  */
-/* 36 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 40 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 42 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 44 */	0x32,		/* FC_BIND_PRIMITIVE */
-			0x0,		/* 0 */
-/* 46 */	NdrFcShort( 0x0 ),	/* x86 Stack size/offset = 0 */
-/* 48 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 50 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 52 */	0x40,		/* Oi2 Flags:  has ext, */
-			0x0,		/* 0 */
-/* 54 */	0x8,		/* 8 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 56 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 58 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 60 */	NdrFcShort( 0x0 ),	/* 0 */
-
 			0x0
         }
     };
@@ -196,7 +164,7 @@ static const bhcredcheck_MIDL_TYPE_FORMAT_STRING bhcredcheck__MIDL_TypeFormatStr
 /*  2 */	
 			0x11, 0x8,	/* FC_RP [simple_pointer] */
 /*  4 */	
-			0x22,		/* FC_C_CSTRING */
+			0x25,		/* FC_C_WSTRING */
 			0x5c,		/* FC_PAD */
 
 			0x0
@@ -205,8 +173,7 @@ static const bhcredcheck_MIDL_TYPE_FORMAT_STRING bhcredcheck__MIDL_TypeFormatStr
 
 static const unsigned short bhcredcheck_FormatStringOffsetTable[] =
     {
-    0,
-    34
+    0
     };
 
 
